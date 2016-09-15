@@ -1,5 +1,6 @@
 import random
 import sys
+from string import ascii_lowercase
 with open("/usr/share/dict/words") as lines:
     lines = lines.readlines()
 comp_word = random.choice(lines).lower().replace("\n", "")
@@ -15,6 +16,7 @@ print(comp_word)
 print("Welcome to Mystery Word! You have 8 chances to guess my word! My word has {} letters in it".format(len(comp_word)))
 
 blank_word = list("_" * comp_letters)
+unused_words = list(ascii_lowercase)
 # Let the user know if their guess appears in the computer's word
 # A user is allowed 8 guesses. Remind the user of how many guesses they have left after each round.
 # If the user guesses the same letter twice, do not take away a guess. Instead, print a message letting them know they've already guessed that letter and ask them to try again.
@@ -29,6 +31,7 @@ while letter_list < 8:
                 blank_word[current_location] = guess
         print("That guess is in the computer word! You have {}/8 guesses".format(letter_list))
         print(*blank_word)
+        print(*unused_words)
         #print(list(comp_word), blank_word, "DANIELLE!!!!")
         # print(good_guesses)
         if blank_word == list(comp_word):
