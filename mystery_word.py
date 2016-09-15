@@ -37,14 +37,17 @@ while letter_list < 8:
         if blank_word == list(comp_word):
             print ("You win!")
             sys.exit()
-    # if guess in bad_guesses:
-    #     print("You've already guessed that letter!")
-        # print(bad_guesses, "DANIELLE")
+    elif guess in bad_guesses:
+        print("you already guessed that letter")
+        
     else:
         bad_guesses.append(guess)
         letter_list += 1
         print("That guess is not in the computer's word! You have {}/8 guesses".format(letter_list))
 
+    # if guess in bad_guesses:
+    #     letter_list - 1
+    #     print("You've already guessed that letter!")
         # print(bad_guesses, "DANIELLE")
 
 
