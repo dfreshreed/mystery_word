@@ -20,7 +20,7 @@ unused_words = list(ascii_lowercase)
 # Let the user know if their guess appears in the computer's word
 # A user is allowed 8 guesses. Remind the user of how many guesses they have left after each round.
 # If the user guesses the same letter twice, do not take away a guess. Instead, print a message letting them know they've already guessed that letter and ask them to try again.
-print(comp_word)
+# print(comp_word)
 while letter_list < 8:
     guess = input("Guess a letter: ").lower()
     if guess in comp_word:
@@ -48,10 +48,8 @@ while letter_list < 8:
         letter_list += 1
         print("That guess is not in the computer's word! You have {}/8 guesses".format(letter_list))
 
-    # if guess in bad_guesses:
-    #     letter_list - 1
-    #     print("You've already guessed that letter!")
-        # print(bad_guesses, "DANIELLE")
+if letter_list == 8:
+    print("Game Over! Thanks for playing! You had {} wrong guesses. My word was {}.".format(letter_list, comp_word))
 
 
 
