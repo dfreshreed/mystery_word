@@ -16,7 +16,7 @@ def word_game():
     letter_list = 0
 
     print("Welcome to Mystery Word! You have 8 chances to guess my word! My word has {} letters in it".format(len(comp_word)))
-    print(comp_word)
+    # print(comp_word)
     blank_word = list("_" * comp_letters)
     unused_words = list(ascii_lowercase)
     while letter_list < 8:

@@ -85,6 +85,7 @@ def word_game(random_word):
         print("GAME OVER! Thanks for playing! You had {} wrong guesses. My word was {}.".format(letter_list, comp_word))
         replay()
 
+
 def replay():
     play_again = input("Do you want to play again? Y/n ").lower()
     if play_again != 'n':
