@@ -3,19 +3,20 @@ import sys
 from string import ascii_lowercase
 with open("/usr/share/dict/words") as lines:
     lines = lines.readlines()
-comp_word = random.choice(lines).lower().replace("\n", "")
-comp_letters = len(comp_word)
 
-print(comp_word)
+
+# print(comp_word)
 
 
 def word_game():
+    comp_word = random.choice(lines).lower().replace("\n", "")
+    comp_letters = len(comp_word)
     good_guesses = []
     bad_guesses = []
     letter_list = 0
 
     print("Welcome to Mystery Word! You have 8 chances to guess my word! My word has {} letters in it".format(len(comp_word)))
-
+    print(comp_word)
     blank_word = list("_" * comp_letters)
     unused_words = list(ascii_lowercase)
     while letter_list < 8:
@@ -50,4 +51,15 @@ def word_game():
     if letter_list == 8:
         print("Game Over! Thanks for playing! You had {} wrong guesses. My word was {}.".format(letter_list, comp_word))
 
+
+def replay():
+    play_again = input("Do you want to play again? Y/n ").lower()
+    if play_again != 'n':
+        # print(play_again)
+        return word_game()
+    else:
+        print("Bye")
+        sys.exit()
+
 word_game()
+replay()
