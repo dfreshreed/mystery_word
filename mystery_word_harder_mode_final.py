@@ -44,13 +44,15 @@ def word_game(random_word):
     good_guesses = []
     bad_guesses = []
     letter_list = 0
-    # print(comp_word)
+    print(comp_word)
     # easy_mode = []
     # normal_mode = []
     # hard_mode = []
     print("You have 8 chances to guess my word! My word has {} letters in it".format(len(comp_word)))
     blank_word = list("_" * comp_letters)
     unused_words = list(ascii_lowercase)
+    print("\n")
+    print(*unused_words)
     while letter_list < 8:
         guess = input("Guess a letter: ").lower()
         if len(guess) != 1:
@@ -68,9 +70,10 @@ def word_game(random_word):
             if guess in unused_words:
                 unused_words.remove(guess)
             print(*unused_words)
+            print("\n")
 
             if blank_word == list(comp_word):
-                print ("You win!")
+                print ("W00T! WINNER!!!")
                 replay()
         elif guess in bad_guesses:
             print("you already guessed that letter")
@@ -79,9 +82,16 @@ def word_game(random_word):
             bad_guesses.append(guess)
             letter_list += 1
             print("That guess is not in the computer's word! You have {}/8 guesses".format(letter_list))
+            print(*blank_word)
+            print("\n")
+            if guess in unused_words:
+                unused_words.remove(guess)
+            print(*unused_words)
+
 
     if letter_list == 8:
         print('\n')
+        print("¯\_(ツ)_/¯")
         print("GAME OVER! Thanks for playing! You had {} wrong guesses. My word was {}.".format(letter_list, comp_word))
         replay()
 
